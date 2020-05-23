@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>JavaScript Tip Calculator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="css/starter-template.css" rel="stylesheet">
+    <style>
+
+            body {color:rgb(6, 1, 34); }
+            #button {background-color: rgb(247, 0, 33); color: rgb(255, 255, 255); font-size: 2rem}
+            #input {width:40%; border: solid 1px black; margin:20px}
+            #output {margin-top:20px}
+                    </style>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+        $(function(){
+          $("#nav").load("components/nav.html");
+        });
+        </script>   
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="nav">
+      
+    </nav>
+
+    <main role="main" class="container">
+
+      <div class="starter-template">
+        
+
+            <h1>JS Tip Calculator</h1>
+        <form>
+<p>What was your bill? $</p>
+<input id="bill" type="text" placeholder="Bill Amount" />
+<p>How was your service?</p>
+<select id="service">
+    <option disabled selected value="0">
+    <option value="0.3">30% - Great!</option>
+    <option value="0.2">20% - Ok</option>
+    <option value="0.1">10% - So-so</option>
+</select>
+<p>How many people are sharing the bill?</p>
+<input type="text" id="nrpeople"><p></p>
+<input type="button" id="button" value="Submit">
+
+        </form>
+        <p></p>
+        <div id="tipoutput"></div>
+        <div id="each">each</div>
+        
+        <script>
+        
+        const button = document.querySelector("#button");
+        const tipoutput = document.querySelector("#tipoutput");
+        const each = document.querySelector("#each");
+        document.querySelector("#each").style.display = "none";
+
+
+function calculatetips () {
+
+    let bill = document.querySelector("#bill").value;
+        let service = document.querySelector("#service").value;
+        let nrpeople = document.querySelector("#nrpeople").value;
+
+    console.log(bill);
+console.log(service);
+console.log(nrpeople);
+if (bill === "" || service == 0) {
+    alert("Please enter values");
+    return;
+  }
+
+  if (nrpeople==="" || nrpeople=="1") {
+    document.querySelector("#each").style.display = "none";
+
+  } else {
+    document.querySelector("#each").style.display = "block";
+
+  }
+
+
+
+let tip = bill*service/nrpeople;
+tip = tip.toFixed(2);
+
+console.log(tip);
+tipoutput.innerHTML="Your tip is " + tip + " $";
+
+}
+        button.addEventListener('click', calculatetips);
+
+
+        </script>
+           
+   
+      </div>
+      
+
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
+
+
+

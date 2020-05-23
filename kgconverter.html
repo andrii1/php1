@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Pounds to KG converter in JavaScript </title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -20,6 +20,14 @@
               $("#nav").load("components/nav.html");
             });
             </script>   
+
+<style>
+
+    
+        button {background-color: rgb(247, 0, 33); color: rgb(255, 255, 255); font-size: 2rem; margin-top: 10px}
+        #input {width:40%; border: solid 1px black; margin:auto}
+        #output {margin-top:20px}
+                </style>
 </head>
 
   <body>
@@ -32,18 +40,44 @@
     <main role="main" class="container">
 
       <div class="starter-template">
-        <h1>Vanilla JavaScript projects</h1>
-        <p class="lead">Check out these vanilla JS projects:<br>
-           
-    </p>
-      </div>
-      <div class="list-group">
+            <h1>Enter pounds</h1>
+            <div id="input" contenteditable></div>
+            <button id="submit">Convert to kg!</button>
+            <br>
+            <div id="output"></div>
             
-            <a href="tip-calculator.html" class="list-group-item list-group-item-action">Tip Calculator (Calculate tips)</a>
-            <a href="kgconverter.html" class="list-group-item list-group-item-action">KG Pounds converter (Convert pounds to kg)</a>
-            <a href="array-mixer.html" class="list-group-item list-group-item-action">Array mixer (Script to mix an array)</a>
-            <a href="autocomplete.html" class="list-group-item list-group-item-action">Country autocomplete (Enter first letter of the country and get a suggestion)</a>
-          </div>
+           
+           <script>
+    
+            const button = document.querySelector('#submit');
+            const input = document.querySelector('#input');
+           
+    
+            function convert() {
+                let x=input.textContent;
+           
+           if (isNaN(x)) 
+               {
+               alert("Must input numbers");
+               return false;
+               
+               
+               
+               }  else {
+                    const pounds = document.querySelector('#input').textContent;
+    
+                    let kg = pounds*0.45;
+                    document.querySelector('#output').innerHTML = pounds + " pounds is " + kg + " kg";
+               }
+                }
+    
+            
+          
+            button.addEventListener('click', convert);
+    
+            </script>
+      </div>
+     
 
     </main><!-- /.container -->
 
@@ -57,3 +91,7 @@
 
 </body>
 </html>
+
+
+
+
